@@ -3,8 +3,24 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   align-items: center;
   gap: 20px;
 }
 
+.display {
+  grid-row: 1 / -1;
+  grid-column: 2 / 3;
+}
+
+.input-info {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+}
+
+.personal-input h1,
+.edu h1 {
+  font-size: 30px;
+}
