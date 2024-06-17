@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import "../styles/Display.css"
 
-const Display = ({ personalData, eduData }) => {
+const Display = ({ personalData, eduData, expData }) => {
     return (
         <div className="display">
             <div className="personal">
@@ -11,7 +11,6 @@ const Display = ({ personalData, eduData }) => {
               <div>{personalData.github}</div>
             </div>
             <div className="education">
-              <h1>Education</h1>
               {eduData.map((edu, index) => 
                 (
                 <div key={index}>
@@ -20,10 +19,21 @@ const Display = ({ personalData, eduData }) => {
                   <div>GPA: {edu.gpa}</div>
                   <div>{edu.startDate} - {edu.gradDate}</div>
                 </div>
-              ))}
+                )
+              )}
             </div>
             <div className="experience">
-              
+              {expData.map((exp, index) => 
+                (
+                  <div key={index}>
+                    <div>{exp.company}</div>
+                    <div>{exp.jobTitle}</div>
+                    <div>{exp.startDate} - {exp.endDate}</div>
+                    <div>{exp.location}</div>
+                    <div>{exp.description}</div>
+                  </div>
+                )
+              )}
             </div>
         </div>
     );
@@ -43,6 +53,14 @@ Display.propTypes = {
         startDate: PropTypes.string,
         gradDate: PropTypes.string,
     })).isRequired,
+    expData: PropTypes.arrayOf(PropTypes.shape({
+      company: PropTypes.string.isRequired,
+      jobTitle: PropTypes.string.isRequired,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      location: PropTypes.string,
+      description: PropTypes.string,
+    }))
 };
 
 export default Display;

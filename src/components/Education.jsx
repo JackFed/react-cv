@@ -76,7 +76,7 @@ const Education = ({ onSubmit }) => {
                         onChange={changeInputData}
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit">Add</button>
             </form>
         </div>
     )

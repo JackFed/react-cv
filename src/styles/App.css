@@ -21,6 +21,7 @@
 }
 
 .personal-input h1,
-.edu h1 {
+.edu h1,
+.exp h1 {
   font-size: 30px;
 }
