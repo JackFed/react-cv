@@ -1,6 +1,15 @@
 import PropTypes from "prop-types"
+import { useState } from "react"
 
-const Education = ({ eduData, setEduData, onSubmit }) => {
+const Education = ({ onSubmit }) => {
+    const [eduData, setEduData] = useState({
+        school: "Harvard University",
+        major: "Bidness",
+        gpa: "3.99",
+        startDate: "2024-08-15",
+        gradDate: "2028-05-15",
+      })
+
     const changeInputData = (e) => {
         const { name, value } = e.target;
         setEduData({...eduData, [name]: value});
@@ -9,6 +18,13 @@ const Education = ({ eduData, setEduData, onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(eduData);
+        setEduData({
+            school: "",
+            major: "",
+            gpa: "",
+            startDate: "",
+            gradDate: "",
+        });
     }
 
     return (
@@ -68,14 +84,6 @@ const Education = ({ eduData, setEduData, onSubmit }) => {
 
 
 Education.propTypes = {
-    eduData: PropTypes.shape({
-        school: PropTypes.string.isRequired,
-        major:  PropTypes.string.isRequired,
-        gpa: PropTypes.string,
-        startDate: PropTypes.string,
-        gradDate: PropTypes.string,
-    }),
-    setEduData: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };
 

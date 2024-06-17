@@ -12,20 +12,20 @@ const Personal = ({ personalData, setPersonalData }) => {
             <h1>Personal Information</h1>
             <div className="input-info">
                 <label>
-                    First Name: 
+                    Full Name: 
                     <input
-                        name="firstName"
+                        name="name"
                         type='text'
-                        value={personalData.firstName}
+                        value={personalData.name}
                         onChange={changeInputData}
                     />
                 </label>
                 <label>
-                    Last Name: 
+                    E-mail: 
                     <input
-                        name="lastName"
-                        type='text'
-                        value={personalData.lastName}
+                        name="email"
+                        type='email'
+                        value={personalData.email}
                         onChange={changeInputData}
                     />
                 </label>
@@ -54,10 +54,10 @@ const Personal = ({ personalData, setPersonalData }) => {
 
 Personal.propTypes = {
     personalData: PropTypes.shape({
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      linkedIn: PropTypes.string.isRequired,
-      github: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string,
+      linkedIn: PropTypes.string,
+      github: PropTypes.string,
     }).isRequired,
     setPersonalData: PropTypes.func.isRequired,
 };

@@ -1,37 +1,30 @@
-import './App.css'
-import Display from './resume/Display.jsx'
+import './styles/App.css'
+import Display from './components/Display.jsx'
 import { useState } from 'react'
-import Personal from "./input/Personal.jsx"
-import Education from './input/Education.jsx'
+import Personal from "./components/Personal.jsx"
+import Education from './components/Education.jsx'
 
 
 function App() {
   const [personalData, setPersonalData] = useState({
-      firstName: "Jon", 
-      lastName: "Daniels",
+      name: "Jon Daniels", 
+      email: "jdanny@gmail.com",
       github: "",
       linkedIn: "",
   });
 
-  const [educationData, setEducationData] = useState({
-    school: "Harvard University",
-    major: "Bidness",
-    gpa: "3.99",
-    startDate: "2024-08-15",
-    gradDate: "2028-05-15",
-  })
-
-  const [submittedEducationData, setSubmittedEducationData] = useState(null);
+  const [educationData, setEducationData] = useState([])
 
   const handleEducationSubmit = (data) => {
-    setSubmittedEducationData(data);
+    setEducationData([...educationData, data]);
   };
 
+  console.log("educationData:", educationData);
   return (
     <>      
       <Personal personalData={personalData} setPersonalData={setPersonalData}/>
-      <Education eduData={educationData} setEduData={setEducationData} onSubmit={handleEducationSubmit} />
-      <Display personalData={personalData} eduData={submittedEducationData}/>
+      <Education onSubmit={handleEducationSubmit} />
+      <Display personalData={personalData} eduData={educationData}/>
     </>
   )
 }

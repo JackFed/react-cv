@@ -1,0 +1,13 @@
+
+.display {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    border: 2px solid black;
+}
+
+.personal {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 2px solid black;
+    min-width: 600px;
+}
