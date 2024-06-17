@@ -5,9 +5,79 @@
     border: 2px solid black;
 }
 
+.education h1,
+.experience h1,
+.personal h1 {
+    font-size: 30px;
+    grid-column: 1 / -1;
+}
+
 .personal {
     display: grid;
     grid-template-rows: 1fr 1fr;
     border: 2px solid black;
     min-width: 600px;
+    min-height: 100px;
+    align-items: center;
+    background-color: rgb(105, 194, 229);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.education {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+
+/* Aligning positions within info boxes */
+.info,
+.uni-info {
+    display: grid;
+    padding: 20px;
+    justify-items: start;
+    align-items: center;
+    grid-template-columns: 1fr 4fr;
+    row-gap: 10px;
+    column-gap: 30px;
+}
+
+.info {
+    grid-template-rows: 1fr 1fr 3fr;
+}
+
+.date {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-wrap: nowrap;
+}
+
+.location {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.desc {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    text-align: start;
+}
+
+.uni-info {
+    grid-template-rows: 1fr 1fr;
+}
+
+.gpa {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.major {
+    grid-column: 2 / 3;
 }

@@ -8,7 +8,10 @@ const Experience = ({ onSubmit }) => {
         startDate: "1998-08-15",
         endDate: "2024-08-15",
         location: "Dallas, TX",
-        description: "Doing sweet stuff",
+        description: "Supported senior researchers on accessibility"+
+        " standards for the open web. Created and usability tested "+
+        "wireframes and prototypes. Produced interactive documentation"+
+        " for quick onboarding of new researchers.",
       })
 
     const changeInputData = (e) => {
@@ -40,6 +43,7 @@ const Experience = ({ onSubmit }) => {
                         type='text'
                         value={expData.company}
                         onChange={changeInputData}
+                        placeholder="Enter Company Name"
                     />
                 </label>
                 <label>
@@ -49,6 +53,7 @@ const Experience = ({ onSubmit }) => {
                         type='text'
                         value={expData.jobTitle}
                         onChange={changeInputData}
+                        placeholder="Enter Position Title"
                     />
                 </label>
                 <label>
@@ -76,6 +81,7 @@ const Experience = ({ onSubmit }) => {
                         type='text'
                         value={expData.location}
                         onChange={changeInputData}
+                        placeholder="ex) City, Country"
                     />
                 </label>
                 <label>
@@ -85,6 +91,7 @@ const Experience = ({ onSubmit }) => {
                         type='text'
                         value={expData.description}
                         onChange={changeInputData}
+                        placeholder="Describe your role"
                     />
                 </label>
                 <button type="submit">Add</button>

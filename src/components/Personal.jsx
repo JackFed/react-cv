@@ -27,6 +27,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                         type='email'
                         value={personalData.email}
                         onChange={changeInputData}
+                        placeholder="example@domain.com"
                     />
                 </label>
                 <label>
@@ -36,6 +37,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                         type='text'
                         value={personalData.linkedIn}
                         onChange={changeInputData}
+                        placeholder="www.linkedin.com/in/<your-username>/"
                     />
                 </label>
                 <label>
@@ -45,6 +47,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                         type='text'
                         value={personalData.github}
                         onChange={changeInputData}
+                        placeholder="github.com/<your-username>"
                     />
                 </label>
             </div>

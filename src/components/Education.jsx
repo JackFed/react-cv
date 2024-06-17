@@ -4,7 +4,7 @@ import { useState } from "react"
 const Education = ({ onSubmit }) => {
     const [eduData, setEduData] = useState({
         school: "Harvard University",
-        major: "Bidness",
+        major: "B.S. in Fine Arts",
         gpa: "3.99",
         startDate: "2024-08-15",
         gradDate: "2028-05-15",
@@ -32,12 +32,13 @@ const Education = ({ onSubmit }) => {
             <h1>Education</h1>
             <form className="input-info" onSubmit={handleSubmit}>
                 <label>
-                    University: 
+                    School: 
                     <input
                         name="school"
                         type='text'
                         value={eduData.school}
                         onChange={changeInputData}
+                        placeholder="Enter a school / university"
                     />
                 </label>
                 <label>
@@ -47,6 +48,7 @@ const Education = ({ onSubmit }) => {
                         type='text'
                         value={eduData.major}
                         onChange={changeInputData}
+                        placeholder="ex) B.S. in Fine Arts"
                     />
                 </label>
                 <label>
