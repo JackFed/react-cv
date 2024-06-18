@@ -3,7 +3,7 @@ import Display from './components/Display.jsx'
 import { useState, useEffect } from 'react'
 import Personal from "./components/Personal.jsx"
 import Education from './Education.jsx'
-import Experience from './components/Experience.jsx' 
+import Experience from './Experience.jsx' 
 import addData from './sampleData.js'
 
 function App() {
@@ -12,10 +12,6 @@ function App() {
   const [educationData, setEducationData] = useState([])
 
   const [experienceData, setExperienceData] = useState([])
-
-  const handleExperienceSubmit = (data) => {
-    setExperienceData([...experienceData, data]);
-  };
 
   const clearAllData = () => {
     setPersonalData({});
@@ -39,7 +35,7 @@ function App() {
         </div>
         <Personal personalData={personalData} setPersonalData={setPersonalData} />
         <Education eduData={educationData} setEduData={setEducationData} />
-        <Experience onSubmit={handleExperienceSubmit} />
+        <Experience expData={experienceData} setExpData={setExperienceData} />
       </div>
       <Display personalData={personalData} eduData={educationData} expData={experienceData} />
     </>

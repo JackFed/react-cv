@@ -1,18 +1,26 @@
 import PropTypes from "prop-types"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const Experience = ({ onSubmit }) => {
+const ExperienceForm = ({ initialData, onSubmit, onCancel }) => {
     const [expData, setExpData] = useState({
-        company: "Tesla",
-        jobTitle: "Principle Swag Engineer",
-        startDate: "1998-08-15",
-        endDate: "2024-08-15",
-        location: "Dallas, TX",
-        description: "Supported senior researchers on accessibility"+
-        " standards for the open web. Created and usability tested "+
-        "wireframes and prototypes. Produced interactive documentation"+
-        " for quick onboarding of new researchers.",
-      })
+        company: initialData.company || "",
+        jobTitle: initialData.jobTitle || "",
+        startDate: initialData.startDate || "",
+        endDate: initialData.endDate || "",
+        location: initialData.location || "",
+        description: initialData.description || "",
+    })
+
+    useEffect(() => {
+        setExpData({
+            company: initialData.company || "",
+            jobTitle: initialData.jobTitle || "",
+            startDate: initialData.startDate || "",
+            endDate: initialData.endDate || "",
+            location: initialData.location || "",
+            description: initialData.description || "",
+        });
+    }, [initialData]);
 
     const changeInputData = (e) => {
         const { name, value } = e.target;
@@ -34,7 +42,6 @@ const Experience = ({ onSubmit }) => {
 
     return (
         <div className="exp">
-            <h1>Experience</h1>
             <form className="input-info" onSubmit={handleSubmit}>
                 <label>
                     Company: 
@@ -94,16 +101,27 @@ const Experience = ({ onSubmit }) => {
                         placeholder="Describe your role"
                     />
                 </label>
-                <button type="submit">Add</button>
+                <button type="submit">Save</button>
+                <button type="button" onClick={onCancel}>Cancel</button>
             </form>
         </div>
     )
 }
 
 
-Experience.propTypes = {
+
+ExperienceForm.propTypes = {
+    initialData: PropTypes.shape({
+        company: PropTypes.string,
+        jobTitle: PropTypes.string,
+        startDate: PropTypes.string,
+        endDate: PropTypes.string,
+        location: PropTypes.string,
+        description: PropTypes.string,
+    }),
     onSubmit: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired,
 };
 
 
-export default Experience;
+export default ExperienceForm;
