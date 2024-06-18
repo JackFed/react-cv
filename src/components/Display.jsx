@@ -1,21 +1,39 @@
 import PropTypes from 'prop-types';
 import "../styles/Display.css"
 import { DateTime } from "luxon";
+import emailIcon from "../assets/email-outline.svg";
+import githubIcon from "../assets/github.svg";
+import linkedInIcon from "../assets/linkedin.svg";
 
 
 const Display = ({ personalData, eduData, expData }) => {
     const prettyDate = (date) => {
       return DateTime.fromISO(date).toLocaleString({ month: 'long', year: 'numeric' });
     }
-    
+
     return (
         <div className="display">
             <div className="personal">
               <h1>{personalData.name}</h1>
               <div className="contact-info">
-                {(personalData.email !== "") && <div>{personalData.email}</div>}
-                {(personalData.linkedIn !== "") && <div>{personalData.linkedIn}</div>}
-                {(personalData.github !== "") && <div>{personalData.github}</div>}
+                {(personalData.email !== "") && 
+                  <div className='contact'>
+                    <img src={emailIcon} alt="E-mail icon" />
+                    {personalData.email}
+                  </div>
+                }
+                {(personalData.linkedIn !== "") && 
+                  <div className='contact'>
+                    <img src={linkedInIcon} alt="LinkedIn icon" />
+                    {personalData.linkedIn}
+                  </div>
+                }
+                {(personalData.github !== "") && 
+                  <div className='contact'>
+                    <img src={githubIcon} alt="GitHub icon" />
+                    {personalData.github}
+                  </div>
+                }
               </div>
             </div>
             <div className="education">
@@ -51,7 +69,7 @@ const Display = ({ personalData, eduData, expData }) => {
 
 Display.propTypes = {
       personalData: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        name: PropTypes.string,
         email: PropTypes.string,
         linkedIn: PropTypes.string,
         github: PropTypes.string,

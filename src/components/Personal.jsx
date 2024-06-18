@@ -31,23 +31,23 @@ const Personal = ({ personalData, setPersonalData }) => {
                     />
                 </label>
                 <label>
-                    LinkedIn Link: 
+                    LinkedIn Username: 
                     <input
                         name="linkedIn"
                         type='text'
                         value={personalData.linkedIn || ""}
                         onChange={changeInputData}
-                        placeholder="www.linkedin.com/in/<your-username>/"
+                        placeholder="Enter your LinkedIn username"
                     />
                 </label>
                 <label>
-                    GitHub Link: 
+                    GitHub Username: 
                     <input
                         name="github"
                         type='text'
                         value={personalData.github || ""}
                         onChange={changeInputData}
-                        placeholder="github.com/<your-username>"
+                        placeholder="Enter your GitHub username"
                     />
                 </label>
             </div>
@@ -57,7 +57,7 @@ const Personal = ({ personalData, setPersonalData }) => {
 
 Personal.propTypes = {
     personalData: PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      name: PropTypes.string,
       email: PropTypes.string,
       linkedIn: PropTypes.string,
       github: PropTypes.string,

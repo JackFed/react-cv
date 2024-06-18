@@ -101,8 +101,10 @@ const ExperienceForm = ({ initialData, onSubmit, onCancel }) => {
                         placeholder="Describe your role"
                     />
                 </label>
-                <button type="submit">Save</button>
-                <button type="button" onClick={onCancel}>Cancel</button>
+                <div className="buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" onClick={onCancel}>Cancel</button>
+                </div>
             </form>
         </div>
     )

@@ -68,11 +68,12 @@ const Experience = ({expData, setExpData}) => {
 
 Experience.propTypes = {
     expData: PropTypes.arrayOf(PropTypes.shape({
-        school: PropTypes.string.isRequired,
-        major: PropTypes.string.isRequired,
-        gpa: PropTypes.string,
+        company: PropTypes.string,
+        jobTitle: PropTypes.string,
         startDate: PropTypes.string,
-        gradDate: PropTypes.string,
+        endDate: PropTypes.string,
+        location: PropTypes.string,
+        description: PropTypes.string,
     })).isRequired,
     setExpData: PropTypes.func.isRequired,
 }
