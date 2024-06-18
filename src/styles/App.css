@@ -5,7 +5,6 @@
   text-align: center;
   display: grid;
   grid-template-columns: 1f 5fr;
-  grid-template-rows: repeat(3, 1fr);
   align-items: start;
   row-gap: 10px;
   column-gap: 30px;
@@ -14,6 +13,8 @@
 .display {
   grid-row: 1 / -1;
   grid-column: 2 / 3;
+  min-width: 800px;
+  min-height: 90vh;
 }
 
 .input-info {

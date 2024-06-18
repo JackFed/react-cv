@@ -1,26 +1,13 @@
 import './styles/App.css'
 import Display from './components/Display.jsx'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Personal from "./components/Personal.jsx"
 import Education from './Education.jsx'
 import Experience from './components/Experience.jsx' 
-
+import addData from './sampleData.js'
 
 function App() {
-  const [personalData, setPersonalData] = useState({
-      name: "Jon Daniels", 
-      email: "jdanny@gmail.com",
-      github: "",
-      linkedIn: "",
-  });
-
-  // const sampleEdu = {
-  //   school: "Harvard University",
-  //   major: "B.S. in Fine Arts",
-  //   gpa: "3.99",
-  //   startDate: "2024-08-15",
-  //   gradDate: "2028-05-15",
-  // }
+  const [personalData, setPersonalData] = useState({});
 
   const [educationData, setEducationData] = useState([])
 
@@ -30,11 +17,29 @@ function App() {
     setExperienceData([...experienceData, data]);
   };
 
+  const clearAllData = () => {
+    setPersonalData({});
+    setEducationData([]);
+    setExperienceData([]);
+  };
+
+  const handleAddData = () => {
+    addData(setPersonalData, setEducationData, setExperienceData);
+  }
+
+  useEffect(() => {
+    handleAddData();
+  }, []);
+
   return (
-    <>      
-      <Personal personalData={personalData} setPersonalData={setPersonalData} />
-      <Education eduData={educationData} setEduData={setEducationData} />
-      <Experience onSubmit={handleExperienceSubmit} />      
+    <>    
+      <div className="inputs">
+        <button onClick={handleAddData}>Load Sample Data</button>
+        <button onClick={clearAllData}>Clear Resume</button>
+        <Personal personalData={personalData} setPersonalData={setPersonalData} />
+        <Education eduData={educationData} setEduData={setEducationData} />
+        <Experience onSubmit={handleExperienceSubmit} />
+      </div>
       <Display personalData={personalData} eduData={educationData} expData={experienceData} />
     </>
   )
