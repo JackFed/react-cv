@@ -16,7 +16,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                     <input
                         name="name"
                         type='text'
-                        value={personalData.name}
+                        value={personalData.name || ""}
                         onChange={changeInputData}
                     />
                 </label>
@@ -25,7 +25,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                     <input
                         name="email"
                         type='email'
-                        value={personalData.email}
+                        value={personalData.email || ""}
                         onChange={changeInputData}
                         placeholder="example@domain.com"
                     />
@@ -35,7 +35,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                     <input
                         name="linkedIn"
                         type='text'
-                        value={personalData.linkedIn}
+                        value={personalData.linkedIn || ""}
                         onChange={changeInputData}
                         placeholder="www.linkedin.com/in/<your-username>/"
                     />
@@ -45,7 +45,7 @@ const Personal = ({ personalData, setPersonalData }) => {
                     <input
                         name="github"
                         type='text'
-                        value={personalData.github}
+                        value={personalData.github || ""}
                         onChange={changeInputData}
                         placeholder="github.com/<your-username>"
                     />

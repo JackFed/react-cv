@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import EducationList from './components/EducationList';
 import EducationForm from './components/EducationForm';
+import "./styles/Education.css"
 
 const Education = ({eduData, setEduData}) => {
     const [editingIndex, setEditingIndex] = useState(null);

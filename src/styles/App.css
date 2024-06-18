@@ -27,3 +27,9 @@
 .exp h1 {
   font-size: 30px;
 }
+
+.update-view {
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+}

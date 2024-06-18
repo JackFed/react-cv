@@ -33,9 +33,10 @@ function App() {
 
   return (
     <>    
-      <div className="inputs">
-        <button onClick={handleAddData}>Load Sample Data</button>
-        <button onClick={clearAllData}>Clear Resume</button>
+        <div className="inputs"><div className="update-view">
+            <button onClick={handleAddData}>Load Sample Data</button>
+            <button onClick={clearAllData}>Clear Resume</button>
+        </div>
         <Personal personalData={personalData} setPersonalData={setPersonalData} />
         <Education eduData={educationData} setEduData={setEducationData} />
         <Experience onSubmit={handleExperienceSubmit} />

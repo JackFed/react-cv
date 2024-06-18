@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../styles/EducationList.css"
 
 const EducationList = ({ eduData, onEdit, onRemove, onAdd }) => {
     return (
