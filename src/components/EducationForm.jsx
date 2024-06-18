@@ -1,14 +1,24 @@
 import PropTypes from "prop-types"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const Education = ({ onSubmit }) => {
+const EducationForm = ({ initialData, onSubmit, onCancel }) => {
     const [eduData, setEduData] = useState({
-        school: "Harvard University",
-        major: "B.S. in Fine Arts",
-        gpa: "3.99",
-        startDate: "2024-08-15",
-        gradDate: "2028-05-15",
-      })
+        school: initialData.school || "",
+        major: initialData.major || "",
+        gpa: initialData.gpa || "",
+        startDate: initialData.startDate || "",
+        gradDate: initialData.gradDate || "",
+    })
+
+    useEffect(() => {
+        setEduData({
+            school: initialData.school || "",
+            major: initialData.major || "",
+            gpa: initialData.gpa || "",
+            startDate: initialData.startDate || "",
+            gradDate: initialData.gradDate || ""
+        });
+    }, [initialData]);
 
     const changeInputData = (e) => {
         const { name, value } = e.target;
@@ -29,7 +39,6 @@ const Education = ({ onSubmit }) => {
 
     return (
         <div className="edu">
-            <h1>Education</h1>
             <form className="input-info" onSubmit={handleSubmit}>
                 <label>
                     School: 
@@ -78,16 +87,24 @@ const Education = ({ onSubmit }) => {
                         onChange={changeInputData}
                     />
                 </label>
-                <button type="submit">Add</button>
+                <button type="submit">Save</button>
+                <button type="button" onClick={onCancel}>Cancel</button>
             </form>
         </div>
     )
 }
 
 
-Education.propTypes = {
+EducationForm.propTypes = {
+    initialData: PropTypes.shape({
+        school: PropTypes.string,
+        major: PropTypes.string,
+        gpa: PropTypes.string,
+        startDate: PropTypes.string,
+        gradDate: PropTypes.string,
+    }),
     onSubmit: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired,
 };
 
-
-export default Education;
+export default EducationForm;
