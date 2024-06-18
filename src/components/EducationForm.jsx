@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
+import "../styles/Form.css"
 
 const EducationForm = ({ initialData, onSubmit, onCancel }) => {
     const [eduData, setEduData] = useState({
@@ -38,7 +39,6 @@ const EducationForm = ({ initialData, onSubmit, onCancel }) => {
     }
 
     return (
-        <div className="edu">
             <form className="input-info" onSubmit={handleSubmit}>
                 <label>
                     School: 
@@ -87,10 +87,11 @@ const EducationForm = ({ initialData, onSubmit, onCancel }) => {
                         onChange={changeInputData}
                     />
                 </label>
-                <button type="submit">Save</button>
-                <button type="button" onClick={onCancel}>Cancel</button>
+                <div className="buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" onClick={onCancel}>Cancel</button>
+                </div>
             </form>
-        </div>
     )
 }
 

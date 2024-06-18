@@ -15,11 +15,13 @@
   grid-column: 2 / 3;
   min-width: 800px;
   min-height: 90vh;
+  background-color: #fff;
 }
 
 .input-info {
   display: grid;
   grid-template-rows: repeat(auto-fill, 1fr);
+  background-color: #fff;
 }
 
 .personal-input h1,
