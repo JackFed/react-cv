@@ -23,7 +23,7 @@ const Display = ({ personalData, eduData, expData }) => {
               {eduData.map((edu, index) => 
                 (
                 <div className="uni-info" key={index}>
-                  <div>{edu.school}</div>
+                  <div className="institution">{edu.school}</div>
                   <div className='major'>{edu.major}</div>
                   {(edu.gpa !== "") && <div className='gpa'>GPA: {edu.gpa}/4.00</div>}
                   <div className="date">{prettyDate(edu.startDate)} - {prettyDate(edu.gradDate)}</div>
